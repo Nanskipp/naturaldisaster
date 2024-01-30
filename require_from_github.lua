@@ -4,7 +4,8 @@ require_from_github = function(url, callback)
 			print("Error: " .. res.StatusCode)
 			return
 		else
-			obj = load(git)()
+			local git = res.Body:ToString()
+			local obj = load(git)()
 			callback(obj)
 		end
 	end)
